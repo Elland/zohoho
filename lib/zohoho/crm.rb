@@ -7,7 +7,7 @@ module Zohoho
     include HTTParty
     
     def initialize(username, password, apikey)
-      @conn = Zohoho::Connection.new 'CRM', username, password, apikey
+      @conn = Zohoho::Connection.new 'ZohoCRM', username, password, apikey
     end
     
     def auth_url

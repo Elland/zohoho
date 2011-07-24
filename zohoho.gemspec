@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["KentonWhite"]
+  s.authors = ["KentonWhite", "Elland"]
   s.date = %q{2011-05-24}
   s.description = %q{Simple interface to zoho api}
   s.email = %q{jkentonwhite@gmail.com}
@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
     "lib/zohoho.rb",
     "lib/zohoho/connection.rb",
     "lib/zohoho/crm.rb",
+    "lib/zohoho/recruit.rb",
     "spec/connection_spec.rb",
     "spec/crm_spec.rb",
     "spec/fixtures/vcr_cassettes/connection/call.yml",

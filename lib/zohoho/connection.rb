@@ -10,7 +10,7 @@ module Zohoho
     end 
     
     def ticket_url
-      "https://accounts.zoho.com/login?servicename=Zoho#{@service_name}&FROM_AGENT=true&LOGIN_ID=#{@username}&PASSWORD=#{@password}"
+      "https://accounts.zoho.com/login?servicename=#{@service_name}&FROM_AGENT=true&LOGIN_ID=#{@username}&PASSWORD=#{@password}"
     end 
     
     def api_key
@@ -22,10 +22,7 @@ module Zohoho
     end
     
     def ticket
-      return @ticket if @ticket
-      url = ticket_url 
-      ticket_info = self.class.post(url).parsed_response 
-      ticket_info.match(/\sTICKET=(.*)\s/)[1]
+      @ticket =  Regexp.last_match(1) if self.class.post(ticket_url).parsed_response =~ /TICKET=(\w+)/
     end 
     
     def call(entry, api_method, query = {}, http_method = :get)
