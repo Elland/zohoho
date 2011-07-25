@@ -13,11 +13,11 @@ module Zohoho
       @conn.ticket_url
     end
     
-    def candidates_url
-      "http://recruit.zoho.com/ats/private/json/Candidates/getRecords?apikey=#{@conn.api_key}&ticket=#{@conn.ticket}"
+    def candidates_url(type = "json")
+      "http://recruit.zoho.com/ats/private/#{type}/Candidates/getRecords?apikey=#{@conn.api_key}&ticket=#{@conn.ticket}"
     end
     
-    def get_candidates(conditions = {})
+    def get_candidates(conditions = {:toIndex => 200})
       self.class.get candidates_url, conditions
     end    
   end
