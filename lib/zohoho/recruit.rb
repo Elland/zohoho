@@ -40,6 +40,7 @@ module Zohoho
         end
         @hash
       end
+      @candidates
     end
   end
 end
