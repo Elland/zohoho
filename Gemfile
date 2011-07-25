@@ -8,7 +8,9 @@ source "http://rubygems.org"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
-group :development do
+group :development, :test do
+  gem 'fakeweb'
+  gem 'vcr'
   gem 'rake'
   gem 'rdoc'
   gem "rspec", ">= 0"

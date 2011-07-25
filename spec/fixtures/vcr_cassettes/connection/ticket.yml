@@ -29,3 +29,29 @@
       RESULT=TRUE
 
     http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: https://accounts.zoho.com:443/login?servicename=CRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      set-cookie: 
+      - iamcsr=a5abc94c-cd04-4f4f-b3d7-01f361213cb6; Path=/
+      - JSESSIONID=3D8AD04E21A102E2E11EFFC2BBA30568; Path=/; Secure
+      content-type: 
+      - text/html;charset=UTF-8
+      content-length: 
+      - "23"
+      date: 
+      - Mon, 25 Jul 2011 00:09:10 GMT
+      server: 
+      - ZWS
+    body: |
+      CRM not known to IAM.
+
+    http_version: "1.1"

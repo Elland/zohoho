@@ -1327,3 +1327,55 @@
       </body>
       </html>
     http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: https://accounts.zoho.com:443/login?servicename=CRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      set-cookie: 
+      - iamcsr=95e01cf9-7336-48f5-a21a-681a9b177dd5; Path=/
+      - JSESSIONID=C3757D13BD27EEB1F192C68A5F43AFB5; Path=/; Secure
+      content-type: 
+      - text/html;charset=UTF-8
+      content-length: 
+      - "23"
+      date: 
+      - Mon, 25 Jul 2011 00:09:13 GMT
+      server: 
+      - ZWS
+    body: |
+      CRM not known to IAM.
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getRecords?apikey=L-PvsrDNn9EIW2phA3vzp9YuL5REECogkQaMGWeIdlI%24&ticket=
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 500
+      message: Internal Server Error
+    headers: 
+      set-cookie: 
+      - JSESSIONID=3DF4699AABFD05D01CD1A5D515759695; Path=/crm
+      content-type: 
+      - text/html;charset=UTF-8
+      date: 
+      - Mon, 25 Jul 2011 00:09:15 GMT
+      server: 
+      - "-"
+      transfer-encoding: 
+      - chunked
+      strict-transport-security: 
+      - max-age=604800
+    body: "\n\n \n\n\n\
+      {\"response\":{\"error\":{\"message\":\"Invalid Ticket Id\",\"code\":\"4834\"}}}\n"
+    http_version: "1.1"
