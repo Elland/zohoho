@@ -36,7 +36,7 @@ module Zohoho
         @hash = {}
         candidate["FL"].collect do |pair|
           pair = pair.to_a
-          @hash[pair.last.last.to_sym] = pair.first.last
+          @hash[pair.last.last] = pair.first.last
         end
         @hash
       end
