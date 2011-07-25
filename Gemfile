@@ -5,6 +5,7 @@ source "http://rubygems.org"
   gem 'httparty'
   gem 'json'
   gem 'xml-simple'
+  gem 'nokogiri'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
