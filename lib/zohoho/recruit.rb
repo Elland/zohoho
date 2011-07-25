@@ -18,8 +18,19 @@ module Zohoho
     end
     
     def get_candidates(conditions = {})
-      self.class.get candidates_url.to_s, conditions
+      url = conditions.empty? ? candidates_url : to_url_params(candidates_url)
+      self.class.get url
     end
     
+    
+    private
+    
+    def to_url_params(url)
+      @url = "&"
+      url.each_pair do |k, v|
+        @url += "#{k}=#{v}&"
+      end
+      @url
+    end
   end
 end
