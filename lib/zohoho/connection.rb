@@ -22,7 +22,7 @@ module Zohoho
     end
     
     def ticket
-      Regexp.last_match(1) if self.class.post(ticket_url).parsed_response =~ /TICKET=(\w+)/
+      Regexp.last_match(1) if self.class.get(ticket_url).parsed_response =~ /TICKET=(\w+)/
     end 
     
     def call(entry, api_method, query = {}, http_method = :get)
