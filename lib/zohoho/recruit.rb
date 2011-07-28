@@ -24,11 +24,11 @@ module Zohoho
     end
     
     def candidates(conditions = {})
-      @candidates ||= get_candidates
+      @candidates ||= get_candidates(conditions)
     end
     
     def get_parsed_candidates(conditions = {:toIndex => 200})
-      raw_candidates = candidates
+      raw_candidates = candidates(conditions)
       @candidates = raw_candidates["response"]["result"]["Candidates"]["row"]
       
       #extracts the relevant data
