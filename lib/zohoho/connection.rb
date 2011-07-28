@@ -4,6 +4,7 @@ module Zohoho
   
   class Connection
     include HTTParty
+    default_timeout 20
     
     def initialize(service_name, username, password, apikey)
       @service_name, @username, @password, @api_key = service_name, username, password, apikey
