@@ -20,14 +20,14 @@ module Zohoho
     end
     
     def get_candidates(conditions = {})
-      (@type == 'json' ? JSON.parse(self.class.get(candidates_url, conditions)) : Nokogiri::XML.parse(self.class.get(candidates_url, conditions)))
+      (@type == 'json' ? JSON.parse(self.class.get(candidates_url+"&#{conditions.to_params}")) : Nokogiri::XML.parse(self.class.get(candidates_url, conditions)))
     end
     
     def candidates(conditions = {})
       @candidates ||= get_candidates(conditions)
     end
     
-    def get_parsed_candidates(conditions = {:toIndex => 200})
+    def get_parsed_candidates(conditions = {:fromIndex => 1, :toIndex => 200})
       raw_candidates = candidates(conditions)
       @candidates = raw_candidates["response"]["result"]["Candidates"]["row"]
       
