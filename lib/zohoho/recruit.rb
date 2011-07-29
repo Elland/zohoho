@@ -5,6 +5,7 @@ module Zohoho
 
   class Recruit
     include HTTParty
+    default_timeout 20
     
     def initialize(username, password, apikey, type = 'json')
       @type = type
@@ -19,15 +20,15 @@ module Zohoho
       "http://recruit.zoho.com/ats/private/#{type}/Candidates/getRecords?apikey=#{@conn.api_key}&ticket=#{@conn.ticket}"
     end
     
-    def get_candidates(conditions = {})
+    def get_candidates(conditions = {:fromIndex => 1, :toIndex => 100})
       (@type == 'json' ? JSON.parse(self.class.get(candidates_url+"&#{conditions.to_params}")) : Nokogiri::XML.parse(self.class.get(candidates_url, conditions)))
     end
     
     def candidates(conditions = {})
-      @candidates ||= get_candidates(conditions)
+      @candidates = get_candidates(conditions)
     end
     
-    def get_parsed_candidates(conditions = {:fromIndex => 1, :toIndex => 200})
+    def get_parsed_candidates(conditions)
       raw_candidates = candidates(conditions)
       @candidates = raw_candidates["response"]["result"]["Candidates"]["row"]
       
