@@ -5,7 +5,10 @@ module Zohoho
 
   class Recruit
     include HTTParty
-    default_timeout 40
+    
+    def set_default_timeout(t)
+      default_timeout t
+    end
     
     def initialize(username, password, apikey, type = 'json')
       @type = type
